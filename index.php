@@ -1,6 +1,7 @@
 <?php
 session_start();
-echo $_SESSION['status'];
+$id_petugas=$_SESSION['id_petugas'];
+// echo $_SESSION['status'];
 if($_SESSION['status']!="sukses"){
     header('location:logout.php');
 }
@@ -18,7 +19,7 @@ if($_SESSION['status']!="sukses"){
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="logo.png">
-    <title>Aplikasi Sikara</title>
+    <title>E-MOJI</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -45,7 +46,7 @@ if($_SESSION['status']!="sukses"){
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SIKARA </div>
+                <div class="sidebar-brand-text mx-3">E-MOJI </div>
             </a>
 
             <!-- Divider -->
@@ -65,12 +66,12 @@ if($_SESSION['status']!="sukses"){
             <div class="sidebar-heading">
                 Master Data
             </div>
-            <li class="nav-item ">
+            <!-- <li class="nav-item ">
                 <a class="nav-link" href="?page=siswa/index">
                     <i class="fas fa-fw fa-users"></i>
 
                     <span>Siswa</span></a>
-            </li>
+            </li> -->
             <li class="nav-item ">
                 <a class="nav-link" href="?page=ijin/index">
                     <i class="fa fa-credit-card"></i>
@@ -84,14 +85,14 @@ if($_SESSION['status']!="sukses"){
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Transaksi
             </div>
             <li class="nav-item ">
                 <a class="nav-link" href="?page=pembayaran/index">
                     <i class="fas fa-address-card"></i>
                     <span>Transaksi Pembayaran</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -106,6 +107,11 @@ if($_SESSION['status']!="sukses"){
                 <a class="nav-link" href="?page=laporan/laporantanggal">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Laporan Per Tanggal</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="?page=laporan/rekaplaporan">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Rekap</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -203,9 +209,10 @@ if($_SESSION['status']!="sukses"){
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#myModal<?php echo $id_petugas; ?>">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Ganti Password
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -282,7 +289,58 @@ if($_SESSION['status']!="sukses"){
             </div>
         </div>
     </div>
+    <!-- Tambahan -->
+    <div class="modal fade" id="myModal<?php echo $id_petugas; ?>" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title">Update Data Mahasiswa</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="editpassword.php" method="POST">
+
+                        <?php
+                        $id = $data['id']; 
+                        $query_edit = mysqli_query($koneksi,"SELECT * FROM petugas WHERE id='$id_petugas'");
+                        //$result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($query_edit)) {  
+                        ?>
+
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" name="nama_mhs" class="form-control"
+                                value="<?php echo $row['nama_petugas']; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password Baru</label>
+                            <input type="text" name="password" class="form-control">
+
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+
+                        <?php 
+                        }
+                        //mysql_close($host);
+                        ?>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  -->
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

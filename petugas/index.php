@@ -17,17 +17,20 @@ include "koneksi.php";
                         <tr>
                             <th>Id</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Nama Pegawai</th>
-                            <th>Level</th>
+                            <th>jabatan</th>
+                            <th>Kantor</th>
+                            <th>Aksi</th>
+
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Id</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Nama Pegawai</th>
-                            <th>Level</th>
+                            <th>jabatan</th>
+                            <th>Kantor</th>
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -38,9 +41,10 @@ include "koneksi.php";
                         <tr>
                             <td><?php echo $data['id']  ?></td>
                             <td><?php echo $data['username']  ?></td>
-                            <td><?php echo $data['password']  ?></td>
                             <td><?php echo $data['nama_petugas']  ?></td>
-                            <td><?php echo $data['level']  ?></td>
+                            <td><?php echo $data['jabatan']  ?></td>
+                            <td><?php echo $data['kantor']  ?></td>
+                            <td><a class="btn btn-warning" href="reset.php?id=<?=$data['id'] ?>">Reset</a></td>
                         </tr>
                         <?php
                         }

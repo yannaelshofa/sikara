@@ -17,7 +17,7 @@ $jPetugas=mysqli_num_rows($query);
 // echo $persetase;
 
 ?>
-<h2>Selamat Datang di Aplikasi Sikara Cabdin Ponorogo</h2>
+<h2>E-moji Elektronik Mohon Ijin</h2>
 <div class="row">
 
     <!-- Earnings (Monthly) Card Example -->
@@ -49,7 +49,7 @@ $jPetugas=mysqli_num_rows($query);
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Jenis Bayar</div>
+                            IJIN HARI INI</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= "Sikara 1"?></div>
                     </div>
                     <div class="col-auto">
@@ -65,7 +65,7 @@ $jPetugas=mysqli_num_rows($query);
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Pembayaran
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">IJIN BULAN LALU
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
@@ -91,12 +91,12 @@ $jPetugas=mysqli_num_rows($query);
 </div>
 <div class="row">
 
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-12 col-lg-7">
 
         <!-- Area Chart -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Grafik Ijin</h6>
             </div>
             <div class="card-body">
                 <div class="chart-area">
@@ -109,38 +109,10 @@ $jPetugas=mysqli_num_rows($query);
         </div>
 
         <!-- Bar Chart -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-            </div>
-            <div class="card-body">
-                <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
-                </div>
-                <hr>
-                Styling for the bar chart can be found in the
-                <code>/js/demo/chart-bar-demo.js</code> file.
-            </div>
-        </div>
+
 
     </div>
 
     <!-- Donut Chart -->
-    <div class="col-xl-4 col-lg-5">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
-                </div>
-                <hr>
-                Styling for the donut chart can be found in the
-                <code>/js/demo/chart-pie-demo.js</code> file.
-            </div>
-        </div>
-    </div>
+
 </div>

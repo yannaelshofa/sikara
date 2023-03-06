@@ -1,0 +1,1 @@
+INSERT INTO `t_ijin` (`id`, `id_petugas`, `status`, `tanggal`, `id_atasan`, `tanggal_aprrove`) VALUES (NULL, '1', '1', current_timestamp(), '2', current_timestamp());
